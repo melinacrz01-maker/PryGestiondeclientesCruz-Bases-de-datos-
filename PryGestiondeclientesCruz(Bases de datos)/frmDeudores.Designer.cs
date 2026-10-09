@@ -28,31 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvTabla = new System.Windows.Forms.DataGridView();
-            this.lblClientes = new System.Windows.Forms.Label();
-            this.lblPromdeuda = new System.Windows.Forms.Label();
-            this.lblTotalDeuda = new System.Windows.Forms.Label();
-            this.lblDeuda = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnListar = new System.Windows.Forms.Button();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).BeginInit();
+            this.lblClientes = new System.Windows.Forms.Label();
+            this.lblPromdeuda = new System.Windows.Forms.Label();
+            this.lblTotalDeuda = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.lblPromedio = new System.Windows.Forms.Label();
+            this.btnListar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvTabla
+            // dgvClientes
             // 
-            this.dgvTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvTabla.Location = new System.Drawing.Point(33, 46);
-            this.dgvTabla.Name = "dgvTabla";
-            this.dgvTabla.Size = new System.Drawing.Size(564, 194);
-            this.dgvTabla.TabIndex = 0;
+            this.dgvClientes.GridColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgvClientes.Location = new System.Drawing.Point(33, 34);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(564, 206);
+            this.dgvClientes.TabIndex = 0;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Código";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre y Apellido";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Deuda";
+            this.Column3.Name = "Column3";
             // 
             // lblClientes
             // 
@@ -84,29 +104,29 @@
             this.lblTotalDeuda.TabIndex = 4;
             this.lblTotalDeuda.Text = "Total deuda";
             // 
-            // lblDeuda
+            // lblTotal
             // 
-            this.lblDeuda.BackColor = System.Drawing.Color.LemonChiffon;
-            this.lblDeuda.Location = new System.Drawing.Point(453, 261);
-            this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(144, 26);
-            this.lblDeuda.TabIndex = 5;
+            this.lblTotal.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lblTotal.Location = new System.Drawing.Point(453, 261);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(144, 26);
+            this.lblTotal.TabIndex = 5;
             // 
-            // label4
+            // lblCantidad
             // 
-            this.label4.BackColor = System.Drawing.Color.LemonChiffon;
-            this.label4.Location = new System.Drawing.Point(193, 261);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 26);
-            this.label4.TabIndex = 6;
+            this.lblCantidad.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lblCantidad.Location = new System.Drawing.Point(193, 261);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(144, 26);
+            this.lblCantidad.TabIndex = 6;
             // 
-            // label5
+            // lblPromedio
             // 
-            this.label5.BackColor = System.Drawing.Color.LemonChiffon;
-            this.label5.Location = new System.Drawing.Point(193, 323);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 26);
-            this.label5.TabIndex = 7;
+            this.lblPromedio.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lblPromedio.Location = new System.Drawing.Point(193, 323);
+            this.lblPromedio.Name = "lblPromedio";
+            this.lblPromedio.Size = new System.Drawing.Size(144, 26);
+            this.lblPromedio.TabIndex = 7;
             // 
             // btnListar
             // 
@@ -121,38 +141,23 @@
             this.btnListar.UseVisualStyleBackColor = false;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Código";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre y Apellido";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Deuda";
-            this.Column3.Name = "Column3";
-            // 
             // frmDeudores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 389);
             this.Controls.Add(this.btnListar);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblDeuda);
+            this.Controls.Add(this.lblPromedio);
+            this.Controls.Add(this.lblCantidad);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTotalDeuda);
             this.Controls.Add(this.lblPromdeuda);
             this.Controls.Add(this.lblClientes);
-            this.Controls.Add(this.dgvTabla);
+            this.Controls.Add(this.dgvClientes);
             this.Name = "frmDeudores";
             this.Text = "frmDeudores";
             this.Load += new System.EventHandler(this.frmDeudores_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,13 +165,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvTabla;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Label lblClientes;
         private System.Windows.Forms.Label lblPromdeuda;
         private System.Windows.Forms.Label lblTotalDeuda;
-        private System.Windows.Forms.Label lblDeuda;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Label lblPromedio;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

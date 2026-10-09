@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PryGestiondeclientesCruz_Bases_de_datos_
 {
-    internal class ClsClientes
+    internal class clsClientes
     {
         private OleDbConnection conexion = new OleDbConnection();
         private OleDbCommand comando = new OleDbCommand();
@@ -31,12 +32,12 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             get { return deuda; }
         }
 
-        public Int32 CantDeudores
+        public Int32 CantidadDeudores
         {
             get { return cantidad; }
         }
 
-        public Decimal PromDeuda
+        public Decimal PromedioDeuda
         {
             get
             {
@@ -85,9 +86,8 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         }
 
 
-        public void ListarDatos(ListBox Lista)
+        public void ReporteClientes()
         {
-
             try
             {
                 //Hacemos la conexión a la Base de Datos
@@ -100,25 +100,40 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 comando.CommandText = Tabla;
 
                 OleDbDataReader DR = comando.ExecuteReader();
-                Lista.Items.Clear();
+                StreamWriter AD = new StreamWriter("Reporte.csv", false, Encoding.UTF8);
+                AD.WriteLine("Listado de Clientes\n");
+                AD.WriteLine("Código;Nombre;Deuda");
 
-                if (DR.HasRows) //el hasRows pregunta si tiene datos o fila ejecuta lo otro
+                cantidad = 0;
+                deuda = 0;
+
+                if (DR.HasRows)
                 {
                     while (DR.Read())
                     {
-                        //agregamos un renglón por cliente: código, nombre y deuda
-                        Lista.Items.Add(DR.GetInt32(0) + " - " + DR.GetString(1) + " - $" + DR.GetDecimal(2));
+                        AD.Write(DR.GetInt32(0));
+                        AD.Write(";");
+                        AD.Write(DR.GetString(1));
+                        AD.Write(";");
+                        AD.WriteLine(DR.GetDecimal(2));
+
+                        cantidad++;
+                        deuda = deuda + DR.GetDecimal(2);
+
                     }
+                    AD.Write("\nCantidad de clientes:;;");
+                    AD.WriteLine(cantidad);
+                    AD.Write("Deuda de los clientes:;;");
+                    AD.WriteLine(deuda);
                 }
 
                 conexion.Close();
+                AD.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-
             }
-
         }
 
 
