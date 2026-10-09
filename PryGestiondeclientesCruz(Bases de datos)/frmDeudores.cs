@@ -24,7 +24,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             try
             {
                 string conexion =
-                    @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Lore\Downloads\Clientesdb.mdb;Persist Security Info=True";
+                    @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + @"\Clientesdb.mdb;Persist Security Info=True";
 
                 string consulta =
                     "SELECT [idCliente], [Nombre], [Deuda] FROM [Lista]";
