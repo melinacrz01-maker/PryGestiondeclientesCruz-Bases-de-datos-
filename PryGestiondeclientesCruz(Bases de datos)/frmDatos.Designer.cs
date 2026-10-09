@@ -51,6 +51,7 @@
             this.btnListarDatos.TabIndex = 1;
             this.btnListarDatos.Text = "Listar";
             this.btnListarDatos.UseVisualStyleBackColor = false;
+            this.btnListarDatos.Click += new System.EventHandler(this.btnListarDatos_Click);
             // 
             // frmDatos
             // 

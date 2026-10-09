@@ -40,5 +40,11 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             frmDeudores frmDeudores = new frmDeudores();
             frmDeudores.ShowDialog();
         }
+
+        private void listadoDeTodosLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDatos frmDatos = new frmDatos();
+            frmDatos.ShowDialog();
+        }
     }
 }

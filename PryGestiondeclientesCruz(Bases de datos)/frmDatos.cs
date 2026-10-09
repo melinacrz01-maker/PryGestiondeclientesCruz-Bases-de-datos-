@@ -16,5 +16,11 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         {
             InitializeComponent();
         }
+
+        private void btnListarDatos_Click(object sender, EventArgs e)
+        {
+            ClsClientes clientes = new ClsClientes();
+            clientes.ListarDatos(listDatos);
+        }
     }
 }
