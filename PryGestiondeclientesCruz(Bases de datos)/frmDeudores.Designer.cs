@@ -119,6 +119,7 @@
             this.btnListar.TabIndex = 8;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // Column1
             // 
@@ -150,6 +151,7 @@
             this.Controls.Add(this.dgvTabla);
             this.Name = "frmDeudores";
             this.Text = "frmDeudores";
+            this.Load += new System.EventHandler(this.frmDeudores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

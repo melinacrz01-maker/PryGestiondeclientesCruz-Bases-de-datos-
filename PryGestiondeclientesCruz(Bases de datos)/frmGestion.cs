@@ -34,5 +34,11 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 Application.Exit();
             }
         }
+
+        private void listadoDeClientesDeudoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDeudores frmDeudores = new frmDeudores();
+            frmDeudores.ShowDialog();
+        }
     }
 }
