@@ -46,5 +46,11 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             frmDatos frmDatos = new frmDatos();
             frmDatos.ShowDialog();
         }
+
+        private void buscarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBusquedaCliente frmBusquedaCliente = new frmBusquedaCliente();
+            frmBusquedaCliente.ShowDialog();
+        }
     }
 }

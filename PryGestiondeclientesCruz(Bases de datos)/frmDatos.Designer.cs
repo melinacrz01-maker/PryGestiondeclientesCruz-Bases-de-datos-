@@ -36,7 +36,7 @@
             // 
             // btnListarDatos
             // 
-            this.btnListarDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnListarDatos.BackColor = System.Drawing.Color.MistyRose;
             this.btnListarDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarDatos.ForeColor = System.Drawing.Color.Maroon;
             this.btnListarDatos.Location = new System.Drawing.Point(286, 412);
@@ -57,27 +57,28 @@
             // 
             // btnReporte
             // 
+            this.btnReporte.BackColor = System.Drawing.Color.MistyRose;
             this.btnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnReporte.ForeColor = System.Drawing.Color.DarkRed;
             this.btnReporte.Location = new System.Drawing.Point(62, 412);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(168, 36);
             this.btnReporte.TabIndex = 3;
             this.btnReporte.Text = "Generar Reporte";
-            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.UseVisualStyleBackColor = false;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // frmDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.BackColor = System.Drawing.Color.Snow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(518, 480);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.Dgvgrilladatos);
             this.Controls.Add(this.btnListarDatos);
-            this.ForeColor = System.Drawing.Color.PeachPuff;
+            this.ForeColor = System.Drawing.Color.MistyRose;
             this.Name = "frmDatos";
             this.Text = "Datos de Clientes..";
             ((System.ComponentModel.ISupportInitialize)(this.Dgvgrilladatos)).EndInit();

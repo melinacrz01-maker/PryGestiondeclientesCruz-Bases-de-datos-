@@ -106,7 +106,7 @@
             // 
             // lblTotal
             // 
-            this.lblTotal.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lblTotal.BackColor = System.Drawing.Color.MintCream;
             this.lblTotal.Location = new System.Drawing.Point(453, 261);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(144, 26);
@@ -114,7 +114,7 @@
             // 
             // lblCantidad
             // 
-            this.lblCantidad.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lblCantidad.BackColor = System.Drawing.Color.White;
             this.lblCantidad.Location = new System.Drawing.Point(193, 261);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(144, 26);
@@ -122,7 +122,7 @@
             // 
             // lblPromedio
             // 
-            this.lblPromedio.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lblPromedio.BackColor = System.Drawing.Color.White;
             this.lblPromedio.Location = new System.Drawing.Point(193, 323);
             this.lblPromedio.Name = "lblPromedio";
             this.lblPromedio.Size = new System.Drawing.Size(144, 26);
@@ -130,9 +130,9 @@
             // 
             // btnListar
             // 
-            this.btnListar.BackColor = System.Drawing.Color.OldLace;
+            this.btnListar.BackColor = System.Drawing.Color.MistyRose;
             this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnListar.ForeColor = System.Drawing.Color.Maroon;
             this.btnListar.Location = new System.Drawing.Point(367, 312);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(230, 35);
@@ -145,6 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(632, 389);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lblPromedio);

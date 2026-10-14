@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.Common;
 
 namespace PryGestiondeclientesCruz_Bases_de_datos_
 {
@@ -26,6 +27,13 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         private Decimal deuda;
         private Int32 cantidad;
 
+
+        private Int32 idCliente;
+        private string nombreCliente;
+        private Int32 deudaCliente;
+        private decimal promedioDeuda;
+        private decimal IdCliente;
+
         //PROPIEDADES
         public Decimal TotalDeuda
         {
@@ -36,6 +44,14 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         {
             get { return cantidad; }
         }
+
+
+        public Int32 IdCliente1
+        {
+            get { return idCliente; }
+            set { idCliente = value; }
+        }
+
 
         public Decimal PromedioDeuda
         {
@@ -71,7 +87,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 DataSet DS = new DataSet();             //data set llama a todos
                 adaptador.Fill(DS);
 
-                //Mostramos los datos en la grilla (cargamos la grilla)
+              
                 Grilla.DataSource = DS.Tables[0];
 
 
@@ -146,7 +162,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 conexion.ConnectionString = CadenaConexion;
                 conexion.Open();
 
-                //Ejecutamos la conexión, le decimos que timpo de tabla usamos y cual tabla usamos
+
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.TableDirect;
                 comando.CommandText = Tabla;
@@ -158,7 +174,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 cantidad = 0;
                 deuda = 0;
 
-                if (DR.HasRows) //el hasRows pregunta si tiene datos o fila ejecuta lo otro
+                if (DR.HasRows)
                 {
                     while (DR.Read())
                     {
@@ -182,8 +198,44 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             }
 
         }
+        private void BuscarCliente(Int32 IdCliente)
+        {
+            try
+            {
+                //Hacemos la conexión a la Base de Datos
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+                OleDbDataReader DR = comando.ExecuteReader();
+               
 
 
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        if (DR.GetInt32(0) == IdCliente)
+                        {
+                                 idCliente = DR.GetInt32(0);
+                            nombreCliente = DR.GetString(1);
+                            deudaCliente = DR.GetInt32(2);
+                            promedioDeuda = DR.GetDecimal(2);
+                            IdCliente = DR.GetInt32(0);
+                        }
+                    }
+                }
 
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+
+        }
     }
 }
