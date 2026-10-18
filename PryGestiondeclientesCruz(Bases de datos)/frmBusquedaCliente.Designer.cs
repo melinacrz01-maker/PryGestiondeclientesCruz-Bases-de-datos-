@@ -30,15 +30,15 @@
         {
             this.lblCodigocliente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtcodigodelclienteingresado = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.grbDatosClientes = new System.Windows.Forms.GroupBox();
+            this.lblTituloNombre = new System.Windows.Forms.Label();
+            this.lblTituloDeuda = new System.Windows.Forms.Label();
+            this.lblTituloLimite = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDeuda = new System.Windows.Forms.Label();
-            this.lblcredito = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblNombreclientee = new System.Windows.Forms.Label();
-            this.lblDeudacliente = new System.Windows.Forms.Label();
-            this.llblcreditocliente = new System.Windows.Forms.Label();
+            this.lblLimite = new System.Windows.Forms.Label();
             this.grbDatosClientes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,21 +62,21 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtcodigodelclienteingresado
+            // txtCodigo
             // 
-            this.txtcodigodelclienteingresado.Location = new System.Drawing.Point(153, 46);
-            this.txtcodigodelclienteingresado.Name = "txtcodigodelclienteingresado";
-            this.txtcodigodelclienteingresado.Size = new System.Drawing.Size(195, 20);
-            this.txtcodigodelclienteingresado.TabIndex = 2;
+            this.txtCodigo.Location = new System.Drawing.Point(153, 46);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(195, 20);
+            this.txtCodigo.TabIndex = 2;
             // 
             // grbDatosClientes
             // 
-            this.grbDatosClientes.Controls.Add(this.llblcreditocliente);
-            this.grbDatosClientes.Controls.Add(this.lblDeudacliente);
-            this.grbDatosClientes.Controls.Add(this.lblNombreclientee);
-            this.grbDatosClientes.Controls.Add(this.lblcredito);
+            this.grbDatosClientes.Controls.Add(this.lblLimite);
             this.grbDatosClientes.Controls.Add(this.lblDeuda);
             this.grbDatosClientes.Controls.Add(this.lblNombre);
+            this.grbDatosClientes.Controls.Add(this.lblTituloLimite);
+            this.grbDatosClientes.Controls.Add(this.lblTituloDeuda);
+            this.grbDatosClientes.Controls.Add(this.lblTituloNombre);
             this.grbDatosClientes.Controls.Add(this.label1);
             this.grbDatosClientes.Location = new System.Drawing.Point(15, 136);
             this.grbDatosClientes.Name = "grbDatosClientes";
@@ -85,35 +85,35 @@
             this.grbDatosClientes.TabStop = false;
             this.grbDatosClientes.Text = "Datos del cliente..";
             // 
-            // lblNombre
+            // lblTituloNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(22, 32);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(66, 16);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre:";
+            this.lblTituloNombre.AutoSize = true;
+            this.lblTituloNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloNombre.Location = new System.Drawing.Point(22, 32);
+            this.lblTituloNombre.Name = "lblTituloNombre";
+            this.lblTituloNombre.Size = new System.Drawing.Size(66, 16);
+            this.lblTituloNombre.TabIndex = 1;
+            this.lblTituloNombre.Text = "Nombre:";
             // 
-            // lblDeuda
+            // lblTituloDeuda
             // 
-            this.lblDeuda.AutoSize = true;
-            this.lblDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeuda.Location = new System.Drawing.Point(22, 68);
-            this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(57, 16);
-            this.lblDeuda.TabIndex = 2;
-            this.lblDeuda.Text = "Deuda:";
+            this.lblTituloDeuda.AutoSize = true;
+            this.lblTituloDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloDeuda.Location = new System.Drawing.Point(22, 68);
+            this.lblTituloDeuda.Name = "lblTituloDeuda";
+            this.lblTituloDeuda.Size = new System.Drawing.Size(57, 16);
+            this.lblTituloDeuda.TabIndex = 2;
+            this.lblTituloDeuda.Text = "Deuda:";
             // 
-            // lblcredito
+            // lblTituloLimite
             // 
-            this.lblcredito.AutoSize = true;
-            this.lblcredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcredito.Location = new System.Drawing.Point(22, 104);
-            this.lblcredito.Name = "lblcredito";
-            this.lblcredito.Size = new System.Drawing.Size(126, 16);
-            this.lblcredito.TabIndex = 3;
-            this.lblcredito.Text = "Limite de credito:";
+            this.lblTituloLimite.AutoSize = true;
+            this.lblTituloLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloLimite.Location = new System.Drawing.Point(22, 104);
+            this.lblTituloLimite.Name = "lblTituloLimite";
+            this.lblTituloLimite.Size = new System.Drawing.Size(126, 16);
+            this.lblTituloLimite.TabIndex = 3;
+            this.lblTituloLimite.Text = "Limite de credito:";
             // 
             // label1
             // 
@@ -123,35 +123,35 @@
             this.label1.Size = new System.Drawing.Size(135, 21);
             this.label1.TabIndex = 4;
             // 
-            // lblNombreclientee
+            // lblNombre
             // 
-            this.lblNombreclientee.BackColor = System.Drawing.Color.SeaShell;
-            this.lblNombreclientee.Enabled = false;
-            this.lblNombreclientee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreclientee.Location = new System.Drawing.Point(94, 27);
-            this.lblNombreclientee.Name = "lblNombreclientee";
-            this.lblNombreclientee.Size = new System.Drawing.Size(135, 21);
-            this.lblNombreclientee.TabIndex = 5;
+            this.lblNombre.BackColor = System.Drawing.Color.SeaShell;
+            this.lblNombre.Enabled = false;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(94, 27);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(135, 21);
+            this.lblNombre.TabIndex = 5;
             // 
-            // lblDeudacliente
+            // lblDeuda
             // 
-            this.lblDeudacliente.BackColor = System.Drawing.Color.SeaShell;
-            this.lblDeudacliente.Enabled = false;
-            this.lblDeudacliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeudacliente.Location = new System.Drawing.Point(94, 68);
-            this.lblDeudacliente.Name = "lblDeudacliente";
-            this.lblDeudacliente.Size = new System.Drawing.Size(135, 21);
-            this.lblDeudacliente.TabIndex = 6;
+            this.lblDeuda.BackColor = System.Drawing.Color.SeaShell;
+            this.lblDeuda.Enabled = false;
+            this.lblDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeuda.Location = new System.Drawing.Point(94, 68);
+            this.lblDeuda.Name = "lblDeuda";
+            this.lblDeuda.Size = new System.Drawing.Size(135, 21);
+            this.lblDeuda.TabIndex = 6;
             // 
-            // llblcreditocliente
+            // lblLimite
             // 
-            this.llblcreditocliente.BackColor = System.Drawing.Color.SeaShell;
-            this.llblcreditocliente.Enabled = false;
-            this.llblcreditocliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblcreditocliente.Location = new System.Drawing.Point(156, 104);
-            this.llblcreditocliente.Name = "llblcreditocliente";
-            this.llblcreditocliente.Size = new System.Drawing.Size(135, 21);
-            this.llblcreditocliente.TabIndex = 7;
+            this.lblLimite.BackColor = System.Drawing.Color.SeaShell;
+            this.lblLimite.Enabled = false;
+            this.lblLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLimite.Location = new System.Drawing.Point(156, 104);
+            this.lblLimite.Name = "lblLimite";
+            this.lblLimite.Size = new System.Drawing.Size(135, 21);
+            this.lblLimite.TabIndex = 7;
             // 
             // frmBusquedaCliente
             // 
@@ -160,7 +160,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(413, 311);
             this.Controls.Add(this.grbDatosClientes);
-            this.Controls.Add(this.txtcodigodelclienteingresado);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblCodigocliente);
             this.Name = "frmBusquedaCliente";
@@ -176,14 +176,14 @@
 
         private System.Windows.Forms.Label lblCodigocliente;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtcodigodelclienteingresado;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.GroupBox grbDatosClientes;
-        private System.Windows.Forms.Label lblNombreclientee;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblcredito;
-        private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label llblcreditocliente;
-        private System.Windows.Forms.Label lblDeudacliente;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTituloLimite;
+        private System.Windows.Forms.Label lblTituloDeuda;
+        private System.Windows.Forms.Label lblTituloNombre;
+        private System.Windows.Forms.Label lblLimite;
+        private System.Windows.Forms.Label lblDeuda;
     }
 }

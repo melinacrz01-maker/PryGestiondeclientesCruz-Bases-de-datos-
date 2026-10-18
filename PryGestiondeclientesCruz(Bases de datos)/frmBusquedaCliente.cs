@@ -21,9 +21,23 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         {
             clsClientes x = new clsClientes();
 
-            Int32 idCliente = Convert.ToInt32(txtcodigodelclienteingresado.Text);
-            
-           
+            Int32 cliente = Convert.ToInt32(txtCodigo.Text);
+            x.Buscar(cliente);
+
+            if(x.idCliente != 0)
+            {
+                lblNombre.Text = x.Nombre;
+                lblDeuda.Text = x.Deuda.ToString();
+                lblLimite.Text = x.Limite.ToString();
+            }
+            else
+            {
+                lblNombre.Text = "";
+                lblDeuda.Text = "";
+                lblLimite.Text = "";
+                MessageBox.Show("Cliente no existente");
+            }
+
         }
     }
 }
