@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnListarDatos = new System.Windows.Forms.Button();
             this.Dgvgrilladatos = new System.Windows.Forms.DataGridView();
             this.btnReporte = new System.Windows.Forms.Button();
@@ -36,7 +38,7 @@
             // 
             // btnListarDatos
             // 
-            this.btnListarDatos.BackColor = System.Drawing.Color.MistyRose;
+            this.btnListarDatos.BackColor = System.Drawing.Color.RosyBrown;
             this.btnListarDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarDatos.ForeColor = System.Drawing.Color.Maroon;
             this.btnListarDatos.Location = new System.Drawing.Point(286, 412);
@@ -50,8 +52,25 @@
             // Dgvgrilladatos
             // 
             this.Dgvgrilladatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgvgrilladatos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Dgvgrilladatos.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Dgvgrilladatos.Location = new System.Drawing.Point(37, 46);
             this.Dgvgrilladatos.Name = "Dgvgrilladatos";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgvgrilladatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgvgrilladatos.Size = new System.Drawing.Size(429, 319);
             this.Dgvgrilladatos.TabIndex = 2;
             // 

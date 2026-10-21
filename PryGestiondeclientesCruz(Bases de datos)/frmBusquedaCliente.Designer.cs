@@ -32,13 +32,16 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.grbDatosClientes = new System.Windows.Forms.GroupBox();
-            this.lblTituloNombre = new System.Windows.Forms.Label();
-            this.lblTituloDeuda = new System.Windows.Forms.Label();
-            this.lblTituloLimite = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblDeuda = new System.Windows.Forms.Label();
             this.lblLimite = new System.Windows.Forms.Label();
+            this.lblDeuda = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblTituloLimite = new System.Windows.Forms.Label();
+            this.lblTituloDeuda = new System.Windows.Forms.Label();
+            this.lblTituloNombre = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.grbDatosClientes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,12 +57,15 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.BackColor = System.Drawing.Color.MistyRose;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.Purple;
             this.btnBuscar.Location = new System.Drawing.Point(202, 82);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(104, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(104, 28);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtCodigo
@@ -71,6 +77,7 @@
             // 
             // grbDatosClientes
             // 
+            this.grbDatosClientes.BackColor = System.Drawing.Color.Ivory;
             this.grbDatosClientes.Controls.Add(this.lblLimite);
             this.grbDatosClientes.Controls.Add(this.lblDeuda);
             this.grbDatosClientes.Controls.Add(this.lblNombre);
@@ -85,25 +92,35 @@
             this.grbDatosClientes.TabStop = false;
             this.grbDatosClientes.Text = "Datos del cliente..";
             // 
-            // lblTituloNombre
+            // lblLimite
             // 
-            this.lblTituloNombre.AutoSize = true;
-            this.lblTituloNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloNombre.Location = new System.Drawing.Point(22, 32);
-            this.lblTituloNombre.Name = "lblTituloNombre";
-            this.lblTituloNombre.Size = new System.Drawing.Size(66, 16);
-            this.lblTituloNombre.TabIndex = 1;
-            this.lblTituloNombre.Text = "Nombre:";
+            this.lblLimite.BackColor = System.Drawing.Color.MistyRose;
+            this.lblLimite.Enabled = false;
+            this.lblLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLimite.Location = new System.Drawing.Point(156, 104);
+            this.lblLimite.Name = "lblLimite";
+            this.lblLimite.Size = new System.Drawing.Size(135, 21);
+            this.lblLimite.TabIndex = 7;
             // 
-            // lblTituloDeuda
+            // lblDeuda
             // 
-            this.lblTituloDeuda.AutoSize = true;
-            this.lblTituloDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloDeuda.Location = new System.Drawing.Point(22, 68);
-            this.lblTituloDeuda.Name = "lblTituloDeuda";
-            this.lblTituloDeuda.Size = new System.Drawing.Size(57, 16);
-            this.lblTituloDeuda.TabIndex = 2;
-            this.lblTituloDeuda.Text = "Deuda:";
+            this.lblDeuda.BackColor = System.Drawing.Color.MistyRose;
+            this.lblDeuda.Enabled = false;
+            this.lblDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeuda.Location = new System.Drawing.Point(94, 68);
+            this.lblDeuda.Name = "lblDeuda";
+            this.lblDeuda.Size = new System.Drawing.Size(135, 21);
+            this.lblDeuda.TabIndex = 6;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.BackColor = System.Drawing.Color.MistyRose;
+            this.lblNombre.Enabled = false;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(94, 27);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(135, 21);
+            this.lblNombre.TabIndex = 5;
             // 
             // lblTituloLimite
             // 
@@ -115,6 +132,26 @@
             this.lblTituloLimite.TabIndex = 3;
             this.lblTituloLimite.Text = "Limite de credito:";
             // 
+            // lblTituloDeuda
+            // 
+            this.lblTituloDeuda.AutoSize = true;
+            this.lblTituloDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloDeuda.Location = new System.Drawing.Point(22, 68);
+            this.lblTituloDeuda.Name = "lblTituloDeuda";
+            this.lblTituloDeuda.Size = new System.Drawing.Size(57, 16);
+            this.lblTituloDeuda.TabIndex = 2;
+            this.lblTituloDeuda.Text = "Deuda:";
+            // 
+            // lblTituloNombre
+            // 
+            this.lblTituloNombre.AutoSize = true;
+            this.lblTituloNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloNombre.Location = new System.Drawing.Point(22, 32);
+            this.lblTituloNombre.Name = "lblTituloNombre";
+            this.lblTituloNombre.Size = new System.Drawing.Size(66, 16);
+            this.lblTituloNombre.TabIndex = 1;
+            this.lblTituloNombre.Text = "Nombre:";
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,42 +160,51 @@
             this.label1.Size = new System.Drawing.Size(135, 21);
             this.label1.TabIndex = 4;
             // 
-            // lblNombre
+            // btnEliminar
             // 
-            this.lblNombre.BackColor = System.Drawing.Color.SeaShell;
-            this.lblNombre.Enabled = false;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(94, 27);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(135, 21);
-            this.lblNombre.TabIndex = 5;
+            this.btnEliminar.BackColor = System.Drawing.Color.MistyRose;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.btnEliminar.Location = new System.Drawing.Point(30, 300);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(98, 33);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
-            // lblDeuda
+            // btnModificar
             // 
-            this.lblDeuda.BackColor = System.Drawing.Color.SeaShell;
-            this.lblDeuda.Enabled = false;
-            this.lblDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeuda.Location = new System.Drawing.Point(94, 68);
-            this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(135, 21);
-            this.lblDeuda.TabIndex = 6;
+            this.btnModificar.BackColor = System.Drawing.Color.MistyRose;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.btnModificar.Location = new System.Drawing.Point(159, 300);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(98, 33);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
-            // lblLimite
+            // btnGuardar
             // 
-            this.lblLimite.BackColor = System.Drawing.Color.SeaShell;
-            this.lblLimite.Enabled = false;
-            this.lblLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLimite.Location = new System.Drawing.Point(156, 104);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(135, 21);
-            this.lblLimite.TabIndex = 7;
+            this.btnGuardar.BackColor = System.Drawing.Color.MistyRose;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.btnGuardar.Location = new System.Drawing.Point(287, 300);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(98, 33);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
             // 
             // frmBusquedaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(413, 311);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(413, 353);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.grbDatosClientes);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnBuscar);
@@ -185,5 +231,8 @@
         private System.Windows.Forms.Label lblTituloNombre;
         private System.Windows.Forms.Label lblLimite;
         private System.Windows.Forms.Label lblDeuda;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
