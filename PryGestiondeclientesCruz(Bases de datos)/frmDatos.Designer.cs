@@ -33,6 +33,11 @@
             this.btnListarDatos = new System.Windows.Forms.Button();
             this.Dgvgrilladatos = new System.Windows.Forms.DataGridView();
             this.btnReporte = new System.Windows.Forms.Button();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Deuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columna = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dgvgrilladatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +46,7 @@
             this.btnListarDatos.BackColor = System.Drawing.Color.RosyBrown;
             this.btnListarDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarDatos.ForeColor = System.Drawing.Color.Maroon;
-            this.btnListarDatos.Location = new System.Drawing.Point(286, 412);
+            this.btnListarDatos.Location = new System.Drawing.Point(236, 385);
             this.btnListarDatos.Name = "btnListarDatos";
             this.btnListarDatos.Size = new System.Drawing.Size(168, 36);
             this.btnListarDatos.TabIndex = 1;
@@ -52,10 +57,16 @@
             // Dgvgrilladatos
             // 
             this.Dgvgrilladatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgvgrilladatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Nombre,
+            this.Ciudad,
+            this.Deuda,
+            this.columna});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DarkRed;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -71,7 +82,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Dgvgrilladatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Dgvgrilladatos.Size = new System.Drawing.Size(429, 319);
+            this.Dgvgrilladatos.Size = new System.Drawing.Size(733, 319);
             this.Dgvgrilladatos.TabIndex = 2;
             // 
             // btnReporte
@@ -79,7 +90,7 @@
             this.btnReporte.BackColor = System.Drawing.Color.MistyRose;
             this.btnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnReporte.Location = new System.Drawing.Point(62, 412);
+            this.btnReporte.Location = new System.Drawing.Point(37, 385);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(168, 36);
             this.btnReporte.TabIndex = 3;
@@ -87,17 +98,47 @@
             this.btnReporte.UseVisualStyleBackColor = false;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Width = 150;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 150;
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.Width = 150;
+            // 
+            // Deuda
+            // 
+            this.Deuda.HeaderText = "Deuda";
+            this.Deuda.Name = "Deuda";
+            this.Deuda.Width = 120;
+            // 
+            // columna
+            // 
+            this.columna.HeaderText = "Limite Deuda";
+            this.columna.Name = "columna";
+            this.columna.Width = 120;
+            // 
             // frmDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(518, 480);
+            this.ClientSize = new System.Drawing.Size(804, 464);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.Dgvgrilladatos);
             this.Controls.Add(this.btnListarDatos);
-            this.ForeColor = System.Drawing.Color.MistyRose;
+            this.ForeColor = System.Drawing.Color.DarkRed;
             this.Name = "frmDatos";
             this.Text = "Datos de Clientes..";
             ((System.ComponentModel.ISupportInitialize)(this.Dgvgrilladatos)).EndInit();
@@ -109,5 +150,10 @@
         private System.Windows.Forms.Button btnListarDatos;
         private System.Windows.Forms.DataGridView Dgvgrilladatos;
         private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Deuda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columna;
     }
 }

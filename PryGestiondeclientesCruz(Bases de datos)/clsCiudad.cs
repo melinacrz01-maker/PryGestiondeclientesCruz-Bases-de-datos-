@@ -12,40 +12,94 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 {
     internal class clsCiudad
     {
-        //Global
-        private OleDbConnection conexion = new OleDbConnection();
-        private OleDbCommand comando = new OleDbCommand();
-        private OleDbDataAdapter adaptador = new OleDbDataAdapter();
-
-        private string CadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + @"\Clientesdb.mdb";
-        private string Tabla = "Ciudad";
-
-        //Procedimiento
-        public void Listar(ComboBox Combo) //Sobrecarga de funciones (tengo dos procedimientos que se llaman iguales pero tienen comportamientos diferentes)
+        internal class ClsCiudad
         {
-            try
+            // Variables globales
+            private OleDbConnection conexion = new OleDbConnection();
+            private OleDbCommand comando = new OleDbCommand();
+            private OleDbDataAdapter adaptador = new OleDbDataAdapter();
+
+            private string CadenaConexion =
+                "Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
+                + Application.StartupPath + @"\Clientesdb.mdb";
+
+            private string Tabla = "Ciudad";
+
+            // Carga las ciudades en el ComboBox
+            public void Listar(ComboBox Combo)
             {
-                conexion.ConnectionString = CadenaConexion;
-                conexion.Open();
+                try
+                {
+                    conexion.ConnectionString = CadenaConexion;
+                    conexion.Open();
 
-                comando.Connection = conexion;
-                comando.CommandType = CommandType.TableDirect;
-                comando.CommandText = Tabla;
+                    comando.Connection = conexion;
+                    comando.CommandType = CommandType.TableDirect;
+                    comando.CommandText = Tabla;
 
-                adaptador = new OleDbDataAdapter(comando); //adapta los dato de la base de datos a datos que sean entendibles por .NET
-                DataSet DS = new DataSet(); // creamos el DataSet
-                adaptador.Fill(DS, Tabla); // llenamos el DataSet por medio del adapataor
+                    adaptador = new OleDbDataAdapter(comando);
+                    DataSet DS = new DataSet();
+                    adaptador.Fill(DS, Tabla);
 
-                Combo.DataSource = DS.Tables[Tabla]; //donde decia Grilla lo cambio por Combo
-                Combo.DisplayMember = "Nombre"; //los datos que queremos que se vean en el comboBox, ponemos el campo que tiene los nombres de las ciudades
-                Combo.ValueMember = "idCiudad"; //el dato que es invisible en el Combo
-
-                conexion.Close();
+                    Combo.DataSource = DS.Tables[Tabla];
+                    Combo.DisplayMember = "Nombre";
+                    Combo.ValueMember = "idCiudad";
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+                finally
+                {
+                    conexion.Close();
+                }
             }
-            catch (Exception e)
+
+            // Busca una ciudad por su código y devuelve su nombre
+            public string Buscar(Int32 IdCiudad)
             {
-                MessageBox.Show(e.ToString());
+                try
+                {
+
+                    //Hacemos la conexion a la base de datos
+                    conexion.ConnectionString = CadenaConexion;
+                    conexion.Open();
+
+                    // Configuramos el comando para buscar la ciudad por su código
+                    comando.Connection = conexion;
+                    comando.CommandType = CommandType.TableDirect;
+                    comando.CommandText = Tabla;
+
+                    OleDbDataReader dr = comando.ExecuteReader();
+                    String resultado = "";
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            if (Convert.ToInt32(dr["idCiudad"]) == IdCiudad)
+                            {
+                                resultado = dr["Nombre"].ToString();
+                                break;
+                            }
+                        }
+                    }
+
+                    conexion.Close();
+
+                    return resultado;
+
+                }
+
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    return "";
+                }
+
             }
         }
     }
 }
+
+

@@ -41,6 +41,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             // 
             // grbDatosCliente
             // 
+            this.grbDatosCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.grbDatosCliente.Controls.Add(this.cmbCiudad);
             this.grbDatosCliente.Controls.Add(this.txtLimite);
             this.grbDatosCliente.Controls.Add(this.txtNombre);
@@ -108,18 +109,22 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             // 
             // btnCargar
             // 
+            this.btnCargar.BackColor = System.Drawing.Color.Navy;
+            this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCargar.Location = new System.Drawing.Point(155, 205);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(104, 28);
+            this.btnCargar.Size = new System.Drawing.Size(104, 38);
             this.btnCargar.TabIndex = 1;
             this.btnCargar.Text = "Cargar";
-            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(413, 255);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.grbDatosCliente);

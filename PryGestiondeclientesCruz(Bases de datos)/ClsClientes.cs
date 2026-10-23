@@ -80,36 +80,51 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 
         public void Listar(DataGridView Grilla)
         {
-
             try
             {
-                //Hacemos la conexión a la Base de Datos
                 conexion.ConnectionString = CadenaConexion;
                 conexion.Open();
 
-                //Ejecutamos la conexión, le decimos que tiempo de tabla usamos y cual tabla usamos
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.TableDirect;
                 comando.CommandText = Tabla;
 
-                //Adaptamos los datos de toda la tabla y se los cargamos a DS
-                adaptador = new OleDbDataAdapter(comando);
-                DataSet DS = new DataSet();             //data set llama a todos
-                adaptador.Fill(DS);
+                Grilla.DataSource = null;
+                Grilla.AutoGenerateColumns = false;
+                Grilla.Rows.Clear();
 
-              
-                Grilla.DataSource = DS.Tables[0];
+                OleDbDataReader DR = comando.ExecuteReader();
 
+                cantidad = 0;
+                deuda = 0;
 
-                conexion.Close();
+                while (DR.Read())
+                {
+                    Grilla.Rows.Add(
+                        DR.GetInt32(0),
+                        DR.GetString(1),
+                        "Ciudad",
+                        DR.GetDecimal(2),
+                        DR.GetDecimal(3)
+                    );
+
+                    cantidad++;
+                    deuda += DR.GetDecimal(2);
+                }
+
+                DR.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-
             }
-
+            finally
+            {
+                conexion.Close();
+            }
         }
+
+
 
 
         public void ReporteClientes()
@@ -222,20 +237,19 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 comando.CommandText = Tabla;
 
                 adaptador = new OleDbDataAdapter(comando); //adapta los dato de la base de datos a datos que sean entendibles por .NET
-                DataSet DS = new DataSet(); // creamos el DataSet
-                adaptador.Fill(DS, Tabla); // llenamos el DataSet por medio del adapataor
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
 
                 //Nuevo
-                DataTable tabla = DS.Tables[Tabla]; //instaciamos el objeto tabla - Recibe todo lo que tiene el DS en la tabla clientes
-                DataRow fila = tabla.NewRow(); //instanciamos el objeto fila de la tabla - A fila le asigno una nueva fila (vacia) de esa tabla
+                DataTable tabla = DS.Tables[Tabla];
+                DataRow fila = tabla.NewRow();
 
-                //llenamos la fila
-                fila["Nombre"] = nom; //le asignamos los valores de las variables a los campos de la fila.
+                fila["Nombre"] = nom;
                 fila["Deuda"] = 0;
                 fila["Limite"] = lim;
                 fila["idCiudad"] = idCiu;
 
-                //incertamos la fila en la tabla
+
                 tabla.Rows.Add(fila);
                 OleDbCommandBuilder ConciliaCambios = new OleDbCommandBuilder(adaptador); //concilia los campos que estan en la Base de Datos con los que está en la memoria
                 adaptador.Update(DS, Tabla); //hago efectivo el cambio de datos
@@ -249,9 +263,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             }
 
         }
-
-
-        public void Buscar(Int32 IdCliente)
+        public void ListarClientes(DataGridView Grilla)
         {
             try
             {
@@ -259,33 +271,67 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 conexion.ConnectionString = CadenaConexion;
                 conexion.Open();
 
-                //Ejecutamos la conexión, le decimos que timpo de tabla usamos y cual tabla usamos
+                //Ejecutamos la conexión, le decimos que tipo de tabla usamos y cual tabla usamos
                 comando.Connection = conexion;
                 comando.CommandType = CommandType.TableDirect;
                 comando.CommandText = Tabla;
 
                 OleDbDataReader DR = comando.ExecuteReader();
+                Grilla.Rows.Clear();
+                clsCiudad ciu = new clsCiudad();
+                String NomCiu = "";
 
-                idCli = 0;
                 if (DR.HasRows)
                 {
                     while (DR.Read())
                     {
-                        if (DR.GetInt32(0) == IdCliente)
-                        {
-                            idCli = DR.GetInt32(0);
-                            nom = DR.GetString(1);
-                            deu = DR.GetDecimal(2);
-                            lim = DR.GetDecimal(3);
-                            idCiu = DR.GetInt32(4);
-                        }
+                        
+                        Grilla.Rows.Add(DR.GetInt32(0), DR.GetString(1), NomCiu, DR.GetDecimal(2), DR.GetDecimal(3));
                     }
                 }
+
                 conexion.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+            }
+        }
+
+        public string Buscar(Int32 IdCliente)
+        {
+            {
+                try
+                {
+                    conexion.ConnectionString = CadenaConexion;
+                    conexion.Open();
+
+                    comando.Connection = conexion;
+                    comando.CommandType = CommandType.TableDirect;
+                    comando.CommandText = Tabla;
+
+                    OleDbDataReader DR = comando.ExecuteReader();
+                    String Resultado = "";
+
+                    if (DR.HasRows)
+                    {
+                        while (DR.Read())
+                        {
+                            if (DR.GetInt32(0) == IdCliente)
+                            {
+                                Resultado = DR.GetString(1);
+                            }
+                        }
+                    }
+
+                    conexion.Close();
+
+                    return Resultado;
+                }
+                catch (Exception e)
+                {
+                    return e.ToString();
+                }
             }
         }
     }
