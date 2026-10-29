@@ -37,7 +37,20 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         private void frmAgregar_Load(object sender, EventArgs e)
         {
             clsCiudad ciu = new clsCiudad();
-           
+            ciu.Listar(cmbCiudad);
+        }
+
+        private void btnAgregarSQL_Click(object sender, EventArgs e)
+        {
+            clsClientes x = new clsClientes();
+            x.Nombre = txtNombre.Text;
+            x.Limite = Convert.ToDecimal(txtLimite.Text);
+            x.idCiudad = Convert.ToInt32(cmbCiudad.SelectedValue);
+            x.AgregarNuevoRegistro();
+            MessageBox.Show("Datos Grabados");
+            txtNombre.Text = "";
+            txtLimite.Text = "";
+            cmbCiudad.SelectedIndex = 0;
         }
     }
 }

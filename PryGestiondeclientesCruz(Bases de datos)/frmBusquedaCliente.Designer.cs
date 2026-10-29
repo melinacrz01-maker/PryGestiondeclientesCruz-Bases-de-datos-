@@ -32,7 +32,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.grbDatosClientes = new System.Windows.Forms.GroupBox();
-            this.lblLimite = new System.Windows.Forms.Label();
+            this.txtLimite = new System.Windows.Forms.TextBox();
             this.lblDeuda = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblTituloLimite = new System.Windows.Forms.Label();
@@ -74,11 +74,12 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(195, 20);
             this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // grbDatosClientes
             // 
             this.grbDatosClientes.BackColor = System.Drawing.Color.Ivory;
-            this.grbDatosClientes.Controls.Add(this.lblLimite);
+            this.grbDatosClientes.Controls.Add(this.txtLimite);
             this.grbDatosClientes.Controls.Add(this.lblDeuda);
             this.grbDatosClientes.Controls.Add(this.lblNombre);
             this.grbDatosClientes.Controls.Add(this.lblTituloLimite);
@@ -92,15 +93,13 @@
             this.grbDatosClientes.TabStop = false;
             this.grbDatosClientes.Text = "Datos del cliente..";
             // 
-            // lblLimite
+            // txtLimite
             // 
-            this.lblLimite.BackColor = System.Drawing.Color.MistyRose;
-            this.lblLimite.Enabled = false;
-            this.lblLimite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLimite.Location = new System.Drawing.Point(156, 104);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(135, 21);
-            this.lblLimite.TabIndex = 7;
+            this.txtLimite.Location = new System.Drawing.Point(156, 104);
+            this.txtLimite.Name = "txtLimite";
+            this.txtLimite.ReadOnly = true;
+            this.txtLimite.Size = new System.Drawing.Size(135, 20);
+            this.txtLimite.TabIndex = 7;
             // 
             // lblDeuda
             // 
@@ -171,6 +170,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -183,6 +183,7 @@
             this.btnModificar.TabIndex = 5;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnGuardar
             // 
@@ -195,6 +196,7 @@
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmBusquedaCliente
             // 
@@ -211,6 +213,7 @@
             this.Controls.Add(this.lblCodigocliente);
             this.Name = "frmBusquedaCliente";
             this.Text = "Busqueda de Cliente";
+            this.Load += new System.EventHandler(this.frmBusquedaCliente_Load);
             this.grbDatosClientes.ResumeLayout(false);
             this.grbDatosClientes.PerformLayout();
             this.ResumeLayout(false);
@@ -229,7 +232,7 @@
         private System.Windows.Forms.Label lblTituloLimite;
         private System.Windows.Forms.Label lblTituloDeuda;
         private System.Windows.Forms.Label lblTituloNombre;
-        private System.Windows.Forms.Label lblLimite;
+        private System.Windows.Forms.TextBox txtLimite;
         private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;

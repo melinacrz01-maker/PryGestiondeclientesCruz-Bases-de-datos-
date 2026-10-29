@@ -36,6 +36,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             this.lblLimite = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnCargar = new System.Windows.Forms.Button();
+            this.btnAgregarSQL = new System.Windows.Forms.Button();
             this.grbDatosCliente.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,20 +113,34 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             this.btnCargar.BackColor = System.Drawing.Color.Navy;
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCargar.Location = new System.Drawing.Point(155, 205);
+            this.btnCargar.Location = new System.Drawing.Point(80, 205);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(104, 38);
             this.btnCargar.TabIndex = 1;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            // 
+            //
+            // btnAgregarSQL
+            //
+            this.btnAgregarSQL.BackColor = System.Drawing.Color.Navy;
+            this.btnAgregarSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarSQL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAgregarSQL.Location = new System.Drawing.Point(230, 205);
+            this.btnAgregarSQL.Name = "btnAgregarSQL";
+            this.btnAgregarSQL.Size = new System.Drawing.Size(104, 38);
+            this.btnAgregarSQL.TabIndex = 2;
+            this.btnAgregarSQL.Text = "Agregar SQL";
+            this.btnAgregarSQL.UseVisualStyleBackColor = false;
+            this.btnAgregarSQL.Click += new System.EventHandler(this.btnAgregarSQL_Click);
+            //
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(413, 255);
+            this.Controls.Add(this.btnAgregarSQL);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.grbDatosCliente);
             this.Name = "frmAgregar";
@@ -147,5 +162,6 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         private System.Windows.Forms.TextBox txtLimite;
         private System.Windows.Forms.ComboBox cmbCiudad;
         private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.Button btnAgregarSQL;
     }
 }

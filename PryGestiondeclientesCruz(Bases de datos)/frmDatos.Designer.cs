@@ -127,7 +127,7 @@
             this.columna.HeaderText = "Limite Deuda";
             this.columna.Name = "columna";
             this.columna.Width = 120;
-            // 
+            //
             // frmDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

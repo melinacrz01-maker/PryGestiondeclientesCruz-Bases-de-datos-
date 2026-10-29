@@ -12,8 +12,6 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 {
     internal class clsCiudad
     {
-        internal class ClsCiudad
-        {
             // Variables globales
             private OleDbConnection conexion = new OleDbConnection();
             private OleDbCommand comando = new OleDbCommand();
@@ -55,50 +53,39 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 }
             }
 
-            // Busca una ciudad por su código y devuelve su nombre
-            public string Buscar(Int32 IdCiudad)
+            public String Buscar(Int32 IdCiudad)
             {
                 try
                 {
-
-                    //Hacemos la conexion a la base de datos
                     conexion.ConnectionString = CadenaConexion;
                     conexion.Open();
 
-                    // Configuramos el comando para buscar la ciudad por su código
                     comando.Connection = conexion;
                     comando.CommandType = CommandType.TableDirect;
                     comando.CommandText = Tabla;
 
-                    OleDbDataReader dr = comando.ExecuteReader();
-                    String resultado = "";
+                    OleDbDataReader DR = comando.ExecuteReader();
+                    String Resultado = "";
 
-                    if (dr.HasRows)
+                    if (DR.HasRows)
                     {
-                        while (dr.Read())
+                        while (DR.Read())
                         {
-                            if (Convert.ToInt32(dr["idCiudad"]) == IdCiudad)
+                            if (DR.GetInt32(0) == IdCiudad)
                             {
-                                resultado = dr["Nombre"].ToString();
-                                break;
+                                Resultado = DR.GetString(1);
                             }
                         }
                     }
-
                     conexion.Close();
 
-                    return resultado;
-
+                    return Resultado;
                 }
-
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.ToString());
-                    return "";
+                    return e.ToString();
                 }
-
             }
-        }
     }
 }
 

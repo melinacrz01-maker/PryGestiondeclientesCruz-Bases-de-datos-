@@ -19,8 +19,8 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 
         private void btnListarDatos_Click(object sender, EventArgs e)
         {
-            clsClientes clientes = new clsClientes();
-            clientes.Listar(Dgvgrilladatos);
+            clsClientes objClientes = new clsClientes();
+            objClientes.ListarClientes(Dgvgrilladatos);
         }
 
         private void btnReporte_Click(object sender, EventArgs e)

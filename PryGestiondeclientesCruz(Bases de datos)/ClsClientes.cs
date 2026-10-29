@@ -285,16 +285,36 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 {
                     while (DR.Read())
                     {
-                        
+                        NomCiu = ciu.Buscar(DR.GetInt32(4));
                         Grilla.Rows.Add(DR.GetInt32(0), DR.GetString(1), NomCiu, DR.GetDecimal(2), DR.GetDecimal(3));
                     }
                 }
 
                 conexion.Close();
             }
-            catch (Exception e)
+            //catch (Exception e)
+            //{
+                // MessageBox.Show(e.ToString());
+            //}
+            catch (FormatException)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("No se puede convertir el tipo de dato");
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("No se puede dividir por cero");
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("El valor del argumento no puede ser nulo");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Indice fuera de la matriz"); // se usa para los vectores
+            }
+            finally
+            {
+                //lo que va aca se ejecuta siempre, tanto por try como por catch por ejemplo resetar variables, cerrar conexión, etc...
             }
         }
 
@@ -312,6 +332,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 
                     OleDbDataReader DR = comando.ExecuteReader();
                     String Resultado = "";
+                    idCli = 0;
 
                     if (DR.HasRows)
                     {
@@ -320,6 +341,11 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                             if (DR.GetInt32(0) == IdCliente)
                             {
                                 Resultado = DR.GetString(1);
+                                idCli = DR.GetInt32(0);
+                                nom = DR.GetString(1);
+                                deu = DR.GetDecimal(2);
+                                lim = DR.GetDecimal(3);
+                                idCiu = DR.GetInt32(4);
                             }
                         }
                     }
@@ -332,6 +358,134 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 {
                     return e.ToString();
                 }
+            }
+        }
+
+        public void SoloESTRUCTURA(Int32 IdCliente) //Esta es la estructura de la instrucción SQL para Modificar, Eliminar y Agregar
+        {
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text; //cambiamos el tipo de comando a Text en lugar de TableDirect
+                comando.CommandText = ""; //lo que escribimos aca modificamos
+
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void Modificar(Int32 IdCliente)
+        {
+            try
+            {
+                String sql = "";
+                //sql = "UPDATE Lista SET LIMITE = 18000 WHERE IDCLIENTE = 2";
+                sql = "UPDATE Lista SET Limite = ";
+                sql = sql + lim.ToString();
+                sql = sql + " WHERE idCliente = ";
+                sql = sql + IdCliente.ToString();
+
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void Eliminar(Int32 IdCliente)
+        {
+            try
+            {
+                String sql = "DELETE * FROM Lista WHERE idCliente = " + IdCliente.ToString();
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void AgregarNuevoRegistro()
+        {
+            try
+            {
+                String sql = "";
+                sql = "INSERT INTO Lista (Nombre,Deuda,Limite,idCiudad)";
+                sql = sql + "VALUES ('" + nom + "',0," + lim.ToString() + "," + idCiu.ToString() + ")";
+
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text; //cambiamos el tipo de comando a Text en lugar de TableDirect
+                comando.CommandText = sql; //lo que escribimos aca eliminamos
+
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void ListarDataSet(DataGridView Grilla) //para recorrer un DataSet. Pag 93 del libro (materiales.ies21.edu.ar/263.pdf)
+        {
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+
+                adaptador = new OleDbDataAdapter(comando); //adapta los dato de la base de datos a datos que sean entendibles por .NET
+
+                DataSet DS = new DataSet(); // creamos el DataSet
+                adaptador.Fill(DS, Tabla); // llenamos el DataSet por medio del adapataor
+
+                if (DS.Tables[Tabla].Rows.Count > 0) //si ese DataSet tiene filas
+                {
+                    foreach (DataRow x in DS.Tables[Tabla].Rows) //recorre el objeto (DS). DataRow o sea Fila de datos. variable x. in es en. Luego toda la fila.
+                    {
+                        Grilla.Rows.Add(x["Nombre"], x["idCiudad"]); //En el DataSet llamamos por "nombre del campo" no la ubicación como el DataReader.
+                    }
+                }
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
             }
         }
     }
