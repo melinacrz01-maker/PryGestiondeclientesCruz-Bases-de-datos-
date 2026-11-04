@@ -565,5 +565,62 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             }
         }
 
+        public void Imprimir(PrintPageEventArgs reporte)
+        {
+            try
+            {
+                Font LetraTitulo1 = new Font("Arial", 20);
+                Font LetraTitulo2 = new Font("Arial", 12);
+                Font LetraTexto = new Font("Arial", 8);
+
+                Int32 f = 200;
+
+                reporte.Graphics.DrawString("Listado de Clientes",
+                    LetraTitulo1, Brushes.Red, 100, 100);
+
+                reporte.Graphics.DrawString("Código",
+                    LetraTitulo2, Brushes.Blue, 100, 180);
+
+                reporte.Graphics.DrawString("Nombre del cliente",
+                    LetraTitulo2, Brushes.Blue, 300, 180);
+
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+
+                adaptador = new OleDbDataAdapter(comando);
+
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
+
+                if (DS.Tables[Tabla].Rows.Count > 0)
+                {
+                    foreach (DataRow fila in DS.Tables[Tabla].Rows)
+                    {
+                        reporte.Graphics.DrawString(
+                            fila["idCliente"].ToString(),
+                            LetraTexto, Brushes.Black, 100, f);
+
+                        reporte.Graphics.DrawString(
+                            fila["Nombre"].ToString(),
+                            LetraTexto, Brushes.Black, 300, f);
+
+                        f = f + 15;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
     }
 }
