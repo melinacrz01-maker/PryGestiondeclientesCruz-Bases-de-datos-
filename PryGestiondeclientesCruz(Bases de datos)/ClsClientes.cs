@@ -7,7 +7,8 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 using System.IO;
-using System.Data.Common;
+using System.Drawing.Printing;
+using System.Drawing;
 
 namespace PryGestiondeclientesCruz_Bases_de_datos_
 {

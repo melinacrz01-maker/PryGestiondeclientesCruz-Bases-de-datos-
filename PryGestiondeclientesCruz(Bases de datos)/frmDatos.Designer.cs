@@ -47,6 +47,8 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnListar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.prtDocumento = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.Dgvgrilladatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtable)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.btnListarDatos.BackColor = System.Drawing.Color.RosyBrown;
             this.btnListarDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListarDatos.ForeColor = System.Drawing.Color.Maroon;
-            this.btnListarDatos.Location = new System.Drawing.Point(211, 315);
+            this.btnListarDatos.Location = new System.Drawing.Point(211, 289);
             this.btnListarDatos.Name = "btnListarDatos";
             this.btnListarDatos.Size = new System.Drawing.Size(168, 36);
             this.btnListarDatos.TabIndex = 1;
@@ -82,7 +84,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Dgvgrilladatos.DefaultCellStyle = dataGridViewCellStyle1;
             this.Dgvgrilladatos.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Dgvgrilladatos.Location = new System.Drawing.Point(37, 46);
+            this.Dgvgrilladatos.Location = new System.Drawing.Point(37, 30);
             this.Dgvgrilladatos.Name = "Dgvgrilladatos";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -130,7 +132,7 @@
             this.btnReporte.BackColor = System.Drawing.Color.MistyRose;
             this.btnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnReporte.Location = new System.Drawing.Point(37, 315);
+            this.btnReporte.Location = new System.Drawing.Point(37, 289);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(168, 36);
             this.btnReporte.TabIndex = 3;
@@ -156,7 +158,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvtable.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvtable.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvtable.Location = new System.Drawing.Point(37, 375);
+            this.dgvtable.Location = new System.Drawing.Point(37, 342);
             this.dgvtable.Name = "dgvtable";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -168,6 +170,7 @@
             this.dgvtable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvtable.Size = new System.Drawing.Size(733, 319);
             this.dgvtable.TabIndex = 4;
+            this.dgvtable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtable_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -201,16 +204,29 @@
             // 
             // btnListar
             // 
-            this.btnListar.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnListar.BackColor = System.Drawing.Color.Maroon;
             this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListar.ForeColor = System.Drawing.Color.MistyRose;
-            this.btnListar.Location = new System.Drawing.Point(37, 713);
+            this.btnListar.Location = new System.Drawing.Point(37, 679);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(168, 36);
             this.btnListar.TabIndex = 5;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = false;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.MistyRose;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.LightCoral;
+            this.btnImprimir.Location = new System.Drawing.Point(385, 289);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(168, 36);
+            this.btnImprimir.TabIndex = 6;
+            this.btnImprimir.Text = "Imprimir ";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // frmDatos
             // 
@@ -219,6 +235,7 @@
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(804, 776);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.dgvtable);
             this.Controls.Add(this.btnReporte);
@@ -249,5 +266,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Drawing.Printing.PrintDocument prtDocumento;
     }
 }

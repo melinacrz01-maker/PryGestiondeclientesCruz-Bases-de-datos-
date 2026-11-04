@@ -43,5 +43,15 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             clsClientes objClientes = new clsClientes();
             objClientes.ListarDataSet(dgvtable);
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvtable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
