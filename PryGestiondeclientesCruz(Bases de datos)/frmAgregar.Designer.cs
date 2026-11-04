@@ -28,6 +28,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregar));
             this.grbDatosCliente = new System.Windows.Forms.GroupBox();
             this.cmbCiudad = new System.Windows.Forms.ComboBox();
             this.txtLimite = new System.Windows.Forms.TextBox();
@@ -42,7 +43,7 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             // 
             // grbDatosCliente
             // 
-            this.grbDatosCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grbDatosCliente.BackColor = System.Drawing.Color.FloralWhite;
             this.grbDatosCliente.Controls.Add(this.cmbCiudad);
             this.grbDatosCliente.Controls.Add(this.txtLimite);
             this.grbDatosCliente.Controls.Add(this.txtNombre);
@@ -110,9 +111,9 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             // 
             // btnCargar
             // 
-            this.btnCargar.BackColor = System.Drawing.Color.Navy;
+            this.btnCargar.BackColor = System.Drawing.Color.Thistle;
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCargar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnCargar.Location = new System.Drawing.Point(80, 205);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(104, 38);
@@ -120,12 +121,12 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            //
+            // 
             // btnAgregarSQL
-            //
-            this.btnAgregarSQL.BackColor = System.Drawing.Color.Navy;
+            // 
+            this.btnAgregarSQL.BackColor = System.Drawing.Color.Thistle;
             this.btnAgregarSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarSQL.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAgregarSQL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnAgregarSQL.Location = new System.Drawing.Point(230, 205);
             this.btnAgregarSQL.Name = "btnAgregarSQL";
             this.btnAgregarSQL.Size = new System.Drawing.Size(104, 38);
@@ -133,17 +134,19 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             this.btnAgregarSQL.Text = "Agregar SQL";
             this.btnAgregarSQL.UseVisualStyleBackColor = false;
             this.btnAgregarSQL.Click += new System.EventHandler(this.btnAgregarSQL_Click);
-            //
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(413, 255);
             this.Controls.Add(this.btnAgregarSQL);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.grbDatosCliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAgregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Cliente";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
             this.grbDatosCliente.ResumeLayout(false);

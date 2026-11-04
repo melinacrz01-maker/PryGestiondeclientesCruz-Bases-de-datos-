@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeudores));
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,7 +156,9 @@
             this.Controls.Add(this.lblPromdeuda);
             this.Controls.Add(this.lblClientes);
             this.Controls.Add(this.dgvClientes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDeudores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDeudores";
             this.Load += new System.EventHandler(this.frmDeudores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
