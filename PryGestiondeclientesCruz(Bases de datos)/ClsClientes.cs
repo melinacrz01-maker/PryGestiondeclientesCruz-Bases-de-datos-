@@ -457,7 +457,8 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
             }
         }
 
-        public void ListarDataSet(DataGridView Grilla) //para recorrer un DataSet. Pag 93 del libro (materiales.ies21.edu.ar/263.pdf)
+
+        public void ListarDataSet(DataGridView Grilla)
         {
             try
             {
@@ -468,25 +469,100 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
                 comando.CommandType = CommandType.TableDirect;
                 comando.CommandText = Tabla;
 
-                adaptador = new OleDbDataAdapter(comando); //adapta los dato de la base de datos a datos que sean entendibles por .NET
+                adaptador = new OleDbDataAdapter(comando);
 
-                DataSet DS = new DataSet(); // creamos el DataSet
-                adaptador.Fill(DS, Tabla); // llenamos el DataSet por medio del adapataor
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
 
-                if (DS.Tables[Tabla].Rows.Count > 0) //si ese DataSet tiene filas
+                Grilla.Rows.Clear();
+
+                clsCiudad ciu = new clsCiudad();
+                String NomCiu = "";
+
+                if (DS.Tables[Tabla].Rows.Count > 0)
                 {
-                    foreach (DataRow x in DS.Tables[Tabla].Rows) //recorre el objeto (DS). DataRow o sea Fila de datos. variable x. in es en. Luego toda la fila.
+                    foreach (DataRow x in DS.Tables[Tabla].Rows)
                     {
-                        Grilla.Rows.Add(x["Nombre"], x["idCiudad"]); //En el DataSet llamamos por "nombre del campo" no la ubicación como el DataReader.
+                        NomCiu = ciu.Buscar(
+                            Convert.ToInt32(x["idCiudad"])
+                        );
+
+                        Grilla.Rows.Add(
+                            x["idCliente"],
+                            x["Nombre"],
+                            NomCiu,
+                            x["Deuda"],
+                            x["Limite"]
+                        );
                     }
                 }
-
-                conexion.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
+            finally
+            {
+                conexion.Close();
+            }
         }
+
+
+        public void ReporteClientesCuadroDialogo(string NombreArchivo)
+        {
+            try
+            {
+                // Hacemos la conexión a la Base de Datos
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                // Ejecutamos la conexión
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+
+                OleDbDataReader DR = comando.ExecuteReader();
+
+                StreamWriter AD = new StreamWriter(NombreArchivo, false, Encoding.UTF8);
+
+                AD.WriteLine("Listado de Clientes\n");
+                AD.WriteLine("Código;Nombre;Deuda");
+
+                cantidad = 0;
+                deuda = 0;
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        AD.Write(DR.GetInt32(0));
+                        AD.Write(";");
+                        AD.Write(DR.GetString(1));
+                        AD.Write(";");
+                        AD.WriteLine(DR.GetDecimal(2));
+
+                        cantidad++;
+                        deuda = deuda + DR.GetDecimal(2);
+                    }
+
+                    AD.Write("\nCantidad de clientes:;;");
+                    AD.WriteLine(cantidad);
+                    AD.Write("Deuda de los clientes:;;");
+                    AD.WriteLine(deuda);
+                }
+
+                DR.Close();
+                AD.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
     }
 }

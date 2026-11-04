@@ -25,9 +25,23 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
+            SaveFileDialog objArchivo = new SaveFileDialog();
+
+            objArchivo.Title = "Seleccione carpeta y escriba el nombre del archivo";
+            objArchivo.RestoreDirectory = true;
+            objArchivo.Filter = "Archivos separado por coma (*.csv)|*.csv|Archivos de texto (*.txt)|*.txt";
+
+            if (objArchivo.ShowDialog() == DialogResult.OK)
+            {
+                clsClientes objClientes = new clsClientes();
+                objClientes.ReporteClientesCuadroDialogo(objArchivo.FileName);
+            }
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
             clsClientes objClientes = new clsClientes();
-            objClientes.ReporteClientes();
-            MessageBox.Show("Reporte Generado Correctamente");
+            objClientes.ListarDataSet(dgvtable);
         }
     }
 }
