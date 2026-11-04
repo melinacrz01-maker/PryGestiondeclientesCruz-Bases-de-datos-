@@ -130,9 +130,9 @@
             // 
             // btnListar
             // 
-            this.btnListar.BackColor = System.Drawing.Color.MistyRose;
+            this.btnListar.BackColor = System.Drawing.Color.Thistle;
             this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.ForeColor = System.Drawing.Color.Maroon;
+            this.btnListar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnListar.Location = new System.Drawing.Point(367, 312);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(230, 35);
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SeaShell;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(632, 421);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lblPromedio);

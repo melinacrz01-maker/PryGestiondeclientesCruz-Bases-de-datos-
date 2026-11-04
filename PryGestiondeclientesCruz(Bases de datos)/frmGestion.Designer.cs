@@ -58,7 +58,7 @@
             // 
             // sistemaToolStripMenuItem
             // 
-            this.sistemaToolStripMenuItem.BackColor = System.Drawing.Color.DarkKhaki;
+            this.sistemaToolStripMenuItem.BackColor = System.Drawing.Color.Thistle;
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aCercaDelDesarrolladorDelSistemaToolStripMenuItem,
             this.salirToolStripMenuItem});
@@ -81,7 +81,7 @@
             // 
             // clientesToolStripMenuItem
             // 
-            this.clientesToolStripMenuItem.BackColor = System.Drawing.Color.DarkKhaki;
+            this.clientesToolStripMenuItem.BackColor = System.Drawing.Color.Thistle;
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarNuevosClientesToolStripMenuItem,
             this.buscarClienteToolStripMenuItem,
@@ -135,7 +135,7 @@
             // 
             // ventasToolStripMenuItem
             // 
-            this.ventasToolStripMenuItem.BackColor = System.Drawing.Color.DarkKhaki;
+            this.ventasToolStripMenuItem.BackColor = System.Drawing.Color.Thistle;
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
@@ -144,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(753, 476);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

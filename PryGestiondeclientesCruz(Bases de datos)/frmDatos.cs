@@ -53,5 +53,14 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         {
 
         }
+
+        private void prtDocumento_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
+            {
+                Font fuente = new Font("Arial", 12, FontStyle.Bold);
+                e.Graphics.DrawString("Hola, Mundo!", fuente, Brushes.Blue,200,200);
+            }
+        }
     }
 }
