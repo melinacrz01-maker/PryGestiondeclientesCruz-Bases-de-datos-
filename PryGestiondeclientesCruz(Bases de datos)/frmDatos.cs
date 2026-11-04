@@ -63,8 +63,12 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
         {
             System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
             {
-                Font fuente = new Font("Arial", 12, FontStyle.Bold);
-                e.Graphics.DrawString("Hola, Mundo!", fuente, Brushes.Blue,200,200);
+
+                //Font fuente = new Font("Arial", 12, FontStyle.Bold);
+                //e.Graphics.DrawString("Hola, Mundo!", fuente, Brushes.Blue,200,200);
+
+                clsClientes x = new clsClientes();
+                x.Imprimir(e);
             }
         }
     }
