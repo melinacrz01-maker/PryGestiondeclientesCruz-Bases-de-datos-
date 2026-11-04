@@ -46,7 +46,12 @@ namespace PryGestiondeclientesCruz_Bases_de_datos_
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            
+            prtVentana.Document = prtDocumento;
+            if (prtVentana.ShowDialog() == DialogResult.OK)
+            {
+                prtDocumento.PrinterSettings = prtVentana.PrinterSettings;
+                prtDocumento.Print();
+            }
         }
 
         private void dgvtable_CellContentClick(object sender, DataGridViewCellEventArgs e)
